@@ -1,14 +1,20 @@
+if(process.env.NODE_ENV === 'development'){
+    require('dotenv').config();
+}
+
 const express = require('express')
 const cors = require('cors');
 const app = express()
 const port = 3000
 const mongoose = require('mongoose');
 const morgan = require('morgan')
-const GifRouter = require('./routes/gifRoutes')
+const router = require('./routes/indexRoutes')
+
 app.use(cors())
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
+
 mongoose.connect('mongodb://localhost:27017/8gif', {useNewUrlParser: true})
 .then(data => {
     console.log('success')
@@ -16,7 +22,7 @@ mongoose.connect('mongodb://localhost:27017/8gif', {useNewUrlParser: true})
     console.log('error')
 })
 
-app.use('/gif', GifRouter)
+app.use('/', router)
 
 app.use(function(err,req,res,next){
     res.json({
@@ -24,4 +30,5 @@ app.use(function(err,req,res,next){
         message: err.message || 'Error'
     })
 })
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
