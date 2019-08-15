@@ -9,6 +9,7 @@ const port = 3000
 const mongoose = require('mongoose');
 const morgan = require('morgan')
 const router = require('./routes/indexRoutes')
+const gifRouter = require('./routes/gifRoutes')
 
 app.use(cors())
 app.use(morgan('dev'))
@@ -24,6 +25,7 @@ mongoose.connect('mongodb://localhost:27017/8gif', {useNewUrlParser: true})
 })
 
 app.use('/', router)
+app.use('/gif',gifRouter)
 
 app.use(function(err,req,res,next){
     res.json({
