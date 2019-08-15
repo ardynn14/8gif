@@ -8,7 +8,7 @@
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
-                    <button v-on:click.prevent="shareFb('http://www.google.com')" data-js="facebook-share" class="btn" id="shareBtn">Share on Facebook</button>
+                    <button v-on:click.prevent="shareFb('https://storage.googleapis.com/gif8/1565878318455giphy.gif')" data-js="facebook-share" class="btn" id="shareBtn">Share on Facebook</button>
                 </div>
             </div>
 
