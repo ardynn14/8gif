@@ -8926,7 +8926,7 @@ var staticRenderFns = [
           staticClass: "d-inline-block align-top",
           attrs: { src: "", width: "30", height: "30", alt: "" }
         }),
-        _vm._v("\n        Bootstrap\n    ")
+        _vm._v("\n        8gif\n    ")
       ])
     ])
   }
@@ -8982,7 +8982,29 @@ exports.default = void 0;
 //
 //
 //
-var _default = {};
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  data: {},
+  methods: {
+    shareFb: function shareFb(url) {
+      var facebookShare = document.querySelector('[data-js="facebook-share"]');
+      var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, 'facebook-popup', 'height=350,width=600');
+
+      if (facebookWindow.focus) {
+        facebookWindow.focus();
+      }
+
+      return false;
+    }
+  }
+};
 exports.default = _default;
         var $d625c9 = exports.default || module.exports;
       
@@ -8996,35 +9018,47 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
-      _c("img", {
-        staticClass: "card-img-top",
-        attrs: { src: "", alt: "..." }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "gif d-flex row" }, [
+      _c("div", { staticClass: "card m-3" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: { src: "/happy-fox.02d5df23.png", alt: "..." }
+        }),
         _vm._v(" "),
-        _c("p", { staticClass: "card-text" }, [
-          _vm._v(
-            "Some quick example text to build on the card title and make up the bulk of the card's content."
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v(
+              "Some quick example text to build on the card title and make up the bulk of the card's content."
+            )
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
+            _vm._v("Go somewhere")
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn",
+              attrs: { "data-js": "facebook-share", id: "shareBtn" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.shareFb("http://www.google.com")
+                }
+              }
+            },
+            [_vm._v("Share on Facebook")]
           )
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-          _vm._v("Go somewhere")
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
           return {
@@ -9057,6 +9091,109 @@ render._withStripped = true
       
       }
     })();
+},{"./../../assets/img/happy-fox.png":[["happy-fox.02d5df23.png","assets/img/happy-fox.png"],"assets/img/happy-fox.png"],"_css_loader":"../../../../../../../.nvm/versions/node/v12.4.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/UploadGift.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {};
+exports.default = _default;
+        var $47c0be = exports.default || module.exports;
+      
+      if (typeof $47c0be === 'function') {
+        $47c0be = $47c0be.options;
+      }
+    
+        /* template */
+        Object.assign($47c0be, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "main-title" }, [
+        _c("h1", [_vm._v("8gif")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-file" }, [
+          _c("input", {
+            staticClass: "custom-file-input",
+            attrs: {
+              type: "file",
+              id: "customFileLang",
+              lang: "es",
+              accept: ".gif"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "custom-file-label",
+              attrs: { for: "customFileLang" }
+            },
+            [_vm._v("upload your gift here...")]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-47c0be",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$47c0be', $47c0be);
+          } else {
+            api.reload('$47c0be', $47c0be);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"../../../../../../../.nvm/versions/node/v12.4.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/App.vue":[function(require,module,exports) {
 "use strict";
 
@@ -9069,9 +9206,10 @@ var _Navbar = _interopRequireDefault(require("./components/Navbar.vue"));
 
 var _Card = _interopRequireDefault(require("./components/Card.vue"));
 
+var _UploadGift = _interopRequireDefault(require("./components/UploadGift.vue"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
 //
 //
 //
@@ -9087,8 +9225,10 @@ var _default = {
       message: 'Hello world'
     };
   },
+  methods: {},
   components: {
     Navbar: _Navbar.default,
+    UploadGift: _UploadGift.default,
     Card: _Card.default
   }
 };
@@ -9107,13 +9247,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _c("Navbar"),
-      _vm._v(" "),
-      _c("h1", [_vm._v(_vm._s(_vm.message))]),
-      _vm._v(" "),
-      _c("Card")
-    ],
+    [_c("navbar"), _vm._v(" "), _c("upload-gift"), _vm._v(" "), _c("card")],
     1
   )
 }
@@ -9150,7 +9284,7 @@ render._withStripped = true
       
       }
     })();
-},{"./components/Navbar.vue":"src/components/Navbar.vue","./components/Card.vue":"src/components/Card.vue","_css_loader":"../../../../../../../.nvm/versions/node/v12.4.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/main.js":[function(require,module,exports) {
+},{"./components/Navbar.vue":"src/components/Navbar.vue","./components/Card.vue":"src/components/Card.vue","./components/UploadGift.vue":"src/components/UploadGift.vue","_css_loader":"../../../../../../../.nvm/versions/node/v12.4.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/main.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));

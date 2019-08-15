@@ -1,0 +1,24 @@
+.card[data-v-d625c9] {
+    max-width: 500px;
+}
+.gif[data-v-d625c9] {
+    margin-top: 50px;
+    justify-content: center;
+}
+.custom-file[data-v-47c0be] {
+    margin-top: 20px;
+    /* margin: 50px */
+    max-width: 500px;
+}
+.custom-file label[data-v-47c0be] {
+    font-size: 14px;
+    /* text-align: left; */
+}
+.main-title[data-v-47c0be] {
+    margin-top: 30px;
+    text-align: center;
+}
+.main-title h1[data-v-47c0be] {
+    
+    font-size: 50px;
+}
