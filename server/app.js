@@ -9,7 +9,7 @@ app.use(cors())
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
-mongoose.connect('mongodb://localhost:27017/8gif', {useNewUrlParser: true})
+mongoose.connect('mongodb://localhost:27017/8gif', {useNewUrlParser: true})     
 .then(data => {
     console.log('success')
 }).catch(err => {
