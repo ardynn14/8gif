@@ -6,5 +6,6 @@ const gif = require('../helper/images')
 router.post('/', gif.multer.single('gif'), 
 gif.sendUploadToGCS,gifController.uploadFile)
 router.get('/', gifController.getGif)
+router.delete('/:id',gifController.deleteGif)
 
 module.exports= router;

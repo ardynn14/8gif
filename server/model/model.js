@@ -8,6 +8,9 @@ const gifSchema = new Schema({
     },
     UserId: {
         type: Schema.Types.ObjectId, ref: 'User' 
+    },
+    title: {
+        type: String 
     }
 }, {
     timestamps: true,
