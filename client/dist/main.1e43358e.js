@@ -13609,7 +13609,12 @@ var staticRenderFns = [
       _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
         _c("img", {
           staticClass: "d-inline-block align-top",
-          attrs: { src: "", width: "30", height: "30", alt: "" }
+          attrs: {
+            src: "/logo.7f586327.jpg",
+            width: "30",
+            height: "30",
+            alt: ""
+          }
         })
       ])
     ])
@@ -13647,7 +13652,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../../../../../../.nvm/versions/node/v12.4.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Card.vue":[function(require,module,exports) {
+},{"./../../css/logo.jpg":[["logo.7f586327.jpg","css/logo.jpg"],"css/logo.jpg"],"_css_loader":"../../../../../../.nvm/versions/node/v12.4.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Card.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -14244,7 +14249,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38097" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43371" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
