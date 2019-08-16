@@ -13610,8 +13610,7 @@ var staticRenderFns = [
         _c("img", {
           staticClass: "d-inline-block align-top",
           attrs: { src: "", width: "30", height: "30", alt: "" }
-        }),
-        _vm._v("\n        8gif\n    ")
+        })
       ])
     ])
   }
@@ -13676,11 +13675,16 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   data: {
     owner: false
   },
-  props: ['gif'],
+  props: ['gifs'],
   methods: {
     shareFb: function shareFb(url) {
       var facebookShare = document.querySelector('[data-js="facebook-share"]');
@@ -13700,6 +13704,21 @@ var _default = {
       }
 
       return false;
+    },
+    deleteGif: function deleteGif(id) {
+      var _this = this;
+
+      console.log(id);
+      axios({
+        method: 'DELETE',
+        url: "http://localhost:3000/gif/".concat(id)
+      }).then(function (_ref) {
+        var data = _ref.data;
+
+        _this.$emit('file-removed', id);
+      }).catch(function (err) {
+        console.log(err);
+      });
     }
   }
 };
@@ -13717,62 +13736,76 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "gif d-flex row" }, [
-      _c("div", { staticClass: "card m-3" }, [
-        _c("img", {
-          staticClass: "card-img-top",
-          attrs: { src: "/happy-fox.02d5df23.png", alt: "..." }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "Some quick example text to build on the card title and make up the bulk of the card's content."
-            )
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-            _vm._v("Go somewhere")
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn",
-              attrs: { "data-js": "facebook-share", id: "shareBtn" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.shareFb(
-                    "https://storage.googleapis.com/gif8/1565878318455giphy.gif"
+    _c(
+      "div",
+      { staticClass: "row" },
+      _vm._l(_vm.gifs, function(a, index) {
+        return _c("div", { key: index, staticClass: "gif " }, [
+          _c("div", { staticClass: "card m-3" }, [
+            _c("img", {
+              staticClass: "card-img-top",
+              attrs: { src: a.gif, alt: "..." }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("h5", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(a.title))
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "button-card" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.deleteGif(a._id)
+                      }
+                    }
+                  },
+                  [_vm._v("Remove")]
+                ),
+                _vm._v(" "),
+                _c("div", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn",
+                      attrs: { "data-js": "facebook-share", id: "shareBtn" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.shareFb(a.gif)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fab fa-facebook-f" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn",
+                      attrs: { "data-js": "twitter-share", id: "shareBtn" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.shareTwitter(a.gif)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fab fa-twitter" })]
                   )
-                }
-              }
-            },
-            [_vm._v("Share on Facebook")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn",
-              attrs: { "data-js": "twitter-share", id: "shareBtn" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.shareTwitter(
-                    "https://storage.googleapis.com/gif8/1565878318455giphy.gif"
-                  )
-                }
-              }
-            },
-            [_vm._v("Share on twitter")]
-          )
+                ])
+              ])
+            ])
+          ])
         ])
-      ])
-    ])
+      }),
+      0
+    )
   ])
 }
 var staticRenderFns = []
@@ -13808,7 +13841,7 @@ render._withStripped = true
       
       }
     })();
-},{"./../../assets/img/happy-fox.png":[["happy-fox.02d5df23.png","assets/img/happy-fox.png"],"assets/img/happy-fox.png"],"_css_loader":"../../../../../../.nvm/versions/node/v12.4.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/UploadGif.vue":[function(require,module,exports) {
+},{"_css_loader":"../../../../../../.nvm/versions/node/v12.4.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/UploadGif.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13830,7 +13863,50 @@ exports.default = void 0;
 //
 //
 //
-var _default = {};
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  data: function data() {
+    return {
+      file: "",
+      title: ""
+    };
+  },
+  methods: {
+    handlefileupload: function handlefileupload(event) {
+      var file = event.target.files || event.dataTransfer.files;
+      this.file = file[0];
+    },
+    submitForm: function submitForm() {
+      var _this = this;
+
+      var formData = new FormData();
+      formData.set("gif", this.file);
+      formData.set("title", this.title);
+      axios({
+        method: "POST",
+        url: "http://localhost:3000/gif/",
+        data: formData
+      }).then(function (_ref) {
+        var data = _ref.data;
+
+        _this.$emit('file-upload', data);
+      });
+    }
+  }
+};
 exports.default = _default;
         var $0c6176 = exports.default || module.exports;
       
@@ -13844,38 +13920,91 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "main-title" }, [
+      _c("h1", [_vm._v("8gif")]),
+      _vm._v(" "),
+      _c("h5", [_vm._v("Sharing for Caring")]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "d-flex",
+          attrs: { action: "", enctype: "multipart/form-data" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.submitForm($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "custom-file input-title" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.title,
+                  expression: "title"
+                }
+              ],
+              attrs: { type: "text", placeholder: "insert title..." },
+              domProps: { value: _vm.title },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.title = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "custom-file upload-file" }, [
+            _c("input", {
+              staticClass: "custom-file-input",
+              attrs: {
+                type: "file",
+                id: "customFileLang",
+                lang: "es",
+                accept: ".gif"
+              },
+              on: {
+                change: function($event) {
+                  return _vm.handlefileupload($event)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-file-label",
+                attrs: { for: "customFileLang" }
+              },
+              [_vm._v("upload your gif here...")]
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "main-title" }, [
-        _c("h1", [_vm._v("8gif")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "custom-file" }, [
-          _c("input", {
-            staticClass: "custom-file-input",
-            attrs: {
-              type: "file",
-              id: "customFileLang",
-              lang: "es",
-              accept: ".gif"
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "custom-file-label",
-              attrs: { for: "customFileLang" }
-            },
-            [_vm._v("upload your gift here...")]
-          )
-        ])
-      ])
+    return _c("div", { staticClass: "custom-file" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("submit")]
+      )
     ])
   }
 ]
@@ -13943,13 +14072,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 var _default = {
   data: function data() {
     return {
-      message: 'Hello world',
+      message: "Hello world",
       isLogin: false,
       gifs: [],
-      token: localStorage.getItem('token') // buat login
+      token: localStorage.getItem("token") // buat login
 
     };
   },
@@ -13963,30 +14093,44 @@ var _default = {
     getGift: function getGift() {
       var _this = this;
 
-      _axios.default.get({
-        url: 'http://localhost:3000/gif',
+      (0, _axios.default)({
+        method: "get",
+        url: "http://localhost:3000/gif/",
         headers: {// token: localStorage.getItem('token')
         }
       }).then(function (_ref) {
         var data = _ref.data;
-        console.log(data, '<------');
+        console.log(data);
         _this.gifs = data;
       }).catch(function (err) {
         console.log(err);
       });
-    } // uploadGift() {
-    //     // console.log('succes upload file');
-    //     axios.post({
-    //         url: `http://localhost:3000/gif`,
-    //     })
-    //         .then(({data}) => {
-    //             this.gifs.push(data)
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //         })
-    // },
+    },
+    uploadGift: function uploadGift() {
+      var _this2 = this;
 
+      // console.log('succes upload file');
+      (0, _axios.default)({
+        method: "post",
+        url: "http://localhost:3000/gif"
+      }).then(function (_ref2) {
+        var data = _ref2.data;
+
+        _this2.gifs.push(data);
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    pushFile: function pushFile(file) {
+      this.gifs.push(file);
+    },
+    removeFile: function removeFile(id) {
+      console.log('masuk sini');
+      this.gifs = this.gifs.filter(function (el) {
+        return el._id !== id;
+      });
+      this.getGift();
+    }
   },
   created: function created() {
     // if(this.token){
@@ -14009,11 +14153,22 @@ exports.default = _default;
   return _c(
     "div",
     [
-      _c("navbar"),
+      _c("upload-gif", {
+        on: {
+          "file-upload": function($event) {
+            return _vm.pushFile($event)
+          }
+        }
+      }),
       _vm._v(" "),
-      _c("upload-gif"),
-      _vm._v(" "),
-      _c("card", { attrs: { gifs: _vm.gifs } })
+      _c("card", {
+        attrs: { gifs: _vm.gifs },
+        on: {
+          "file-removed": function($event) {
+            return _vm.removeFile($event)
+          }
+        }
+      })
     ],
     1
   )
@@ -14089,7 +14244,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37347" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38097" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

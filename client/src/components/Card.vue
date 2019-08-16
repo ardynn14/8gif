@@ -1,18 +1,23 @@
 <template>
+
     <div class="container">
-        <div class="gif d-flex row">
-
-            <div class="card m-3">
-                <img src="../../assets/img/happy-fox.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                    <button v-on:click.prevent="shareFb('https://storage.googleapis.com/gif8/1565878318455giphy.gif')" data-js="facebook-share" class="btn" id="shareBtn">Share on Facebook</button>
-                    <button v-on:click.prevent="shareTwitter('https://storage.googleapis.com/gif8/1565878318455giphy.gif')" data-js="twitter-share" class="btn" id="shareBtn">Share on twitter</button>
+        <div class="row">
+            <div class="gif " v-for="(a, index) in gifs" :key="index">
+                <div class="card m-3">
+                    <img :src="a.gif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{a.title}}</h5>
+                        <div class="button-card">
+                            <a href="#" class="btn btn-primary" @click.prevent="deleteGif(a._id)">Remove</a>
+                            <div>
+                            <button v-on:click.prevent="shareFb(a.gif)" data-js="facebook-share" class="btn" id="shareBtn"><i class="fab fa-facebook-f"></i></button>
+                            <button v-on:click.prevent="shareTwitter(a.gif)" data-js="twitter-share" class="btn" id="shareBtn"><i class="fab fa-twitter"></i></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
     
@@ -24,7 +29,7 @@
         data:{
             owner: false
         },
-        props: ['gif'],
+        props: ['gifs'],
         methods: {
             shareFb(url) {
                 let facebookShare = document.querySelector('[data-js="facebook-share"]');
@@ -38,6 +43,17 @@
                 return false;
                 
             },
+            deleteGif(id){
+                console.log(id)
+                axios({
+                    method:'DELETE',
+                    url: `http://localhost:3000/gif/${id}`,
+                }).then(({data}) => {
+                    this.$emit('file-removed', id)
+                }).catch(err => {
+                    console.log(err);
+                })
+            }
         }    
     }
 
@@ -46,9 +62,35 @@
 <style scoped>
     .card {
         max-width: 500px;
+        -webkit-box-shadow: 5px -4px 15px -6px rgba(46,81,255,1);
+        -moz-box-shadow: 5px -4px 15px -6px rgba(46,81,255,1);
+        box-shadow: 5px -4px 15px -6px rgba(46,81,255,1);
+    }
+    .card img:hover {
+        opacity: 0.8;
     }
     .gif {
         margin-top: 50px;
+    }
+    .row {
+        display: flex;
         justify-content: center;
+    }
+    .container {
+        justify-content: center;
+    }
+    .card-body button{
+        color: #21759b;
+        font-size: 25px;
+        width: 50px;
+        height: 50px;
+        text-align: right;
+    }
+    .card-body button:hover {
+        box-shadow: 0 0 2px #21759b;
+    }
+    .button-card {
+        display: flex;
+        justify-content: space-between;
     }
 </style>
