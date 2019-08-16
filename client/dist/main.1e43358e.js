@@ -13610,8 +13610,7 @@ var staticRenderFns = [
         _c("img", {
           staticClass: "d-inline-block align-top",
           attrs: { src: "", width: "30", height: "30", alt: "" }
-        }),
-        _vm._v("\n        8gif\n    ")
+        })
       ])
     ])
   }
@@ -14245,7 +14244,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36269" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38097" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
