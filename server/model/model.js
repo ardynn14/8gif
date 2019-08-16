@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const gifSchema = new Schema({
+    
     gif: {
         type: String
     },

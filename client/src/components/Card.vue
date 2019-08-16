@@ -9,6 +9,7 @@
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                     <button v-on:click.prevent="shareFb('https://storage.googleapis.com/gif8/1565878318455giphy.gif')" data-js="facebook-share" class="btn" id="shareBtn">Share on Facebook</button>
+                    <button v-on:click.prevent="shareTwitter('https://storage.googleapis.com/gif8/1565878318455giphy.gif')" data-js="twitter-share" class="btn" id="shareBtn">Share on twitter</button>
                 </div>
             </div>
 
@@ -21,15 +22,22 @@
 <script>
     export default {
         data:{
-            
+            owner: false
         },
+        props: ['gif'],
         methods: {
             shareFb(url) {
                 let facebookShare = document.querySelector('[data-js="facebook-share"]');
-                let facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, 'facebook-popup', 'height=350,width=600');
+                let facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, 'facebook-popup', 'height=450,width=650');
                 if(facebookWindow.focus) { facebookWindow.focus(); }
                 return false;
-            }
+            },
+            shareTwitter(url) {
+                let twitterWindow = window.open('https://twitter.com/share?url=' + url, 'twitter-popup', 'height=450,width=650');
+                if(twitterWindow.focus) { twitterWindow.focus(); }
+                return false;
+                
+            },
         }    
     }
 
