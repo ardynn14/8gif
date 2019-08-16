@@ -1,264 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-    <title>Mini WP</title>
-</head>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+        <title>8gif</title>
+        <style>
+            body {
+                background-image: radial-gradient( circle farthest-corner at 51% 49.2%,  rgba(58,182,219,1) 25.4%, rgba(78,239,209,1) 98% );
+            }
+        </style>
+    </head>
 
 <body>
-    <div id="app">
-        <!-- navbar -->
-        <nav id="navbar" class="p-0 pl-5  navbar">
-            <div>
-                <img class="logoImage" src="./css/pics/logo.png" alt="Mini WP logo">
-            </div>
-            <div id="navigasi" class="navigasi ml-5">
-                <ul class="navlink">
-                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-project-diagram"></i> Products</a></li>
-                    <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <!-- btn after login -->
-                <ul id="btnAfterLogin" class="userBtn">
-                    <li><button onclick="edit()" class="btn btn-sign mr-4">Edit Profile</button></li>
-                    <li><button onclick="logout()" class="btn btn-sign mr-4">Logout</button></li>
-                </ul>
-                <!-- btn after login -->
-
-                <!-- btn before login -->
-                <ul id="btnBeforeLogin" class="userBtn">
-                    <li><button onclick="signIn()" class="btn btn-sign mr-4">Sign In</button></li>
-                    <li><button onclick="signUp()" class="btn btn-sign mr-4">Sign Up</button></li>
-                </ul>
-                <!-- btn before login -->
-            </div>
-        </nav>
-        <!-- navbar -->
 
 
-        <div id="beforelogin">
-            <!-- homeBackground -->
-            <div id="homeBackground">
-                <div class="quoteBox">
-                    <div class="quoteText p-2 pt-5">
-                        <h1>Because Happiness</h1>
-                        <h1>Starting with Sharing</h1>
-                        <p class="mt-5">~ Ardi Pratama ~</p>
-                    </div>
-                </div>
-            </div>
-            <!-- homeBackgrounnd -->
-        </div>
+    <div id="app"></div>
 
-        <div id="afterlogin">
-            <!-- userBackground -->
-            <div id="userBackground">
-                <div id="userProfile">
-                    <div id="profilePicture" class="mt-5">
-                        <img class="profilePhoto" src="./css/pics/defaultPP.jpg" alt="Profile Picture">
-                    </div>
-                    <div id="username" class="mt-3">
-                        <h5>Ardi Pratama</h5>
-                    </div>
-                    <ul id="navigationList" class="p-0 mt-5">
-                        <hr>
-                        <li><button class="btn" onclick="newArticle()"><i class="fas fa-plus-circle"></i> New
-                                Article</button></li>
-                        <hr>
-                        <li><button class="btn" onclick="myArticle()"><i class="far fa-newspaper"></i> My
-                                Articles</button>
-                        </li>
-                        <hr>
-                        <li><button class="btn" onclick="articleFeeds()"><i class="fas fa-newspaper"></i> Articles
-                                Feeds</button></li>
-                        <hr>
-                    </ul>
-                </div>
-
-                <!-- article feeds -->
-                <div id="articlesList" class="overflow-auto p-4">
-                    <div id="articleFeeds" class="">
-                        <div class="articleCard m-2">
-                            <img class="articleImage m-2" src="./css/pics/articeldefault.png" alt="article image">
-                            <div class="articleInfo m-2">
-                                <h4 class="articleName mb-0">Aku ?</h4>
-                                <hr>
-                                <p class="articleDescription">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book.
-                                </p>
-                                <a href="">readmore ...</a>
-                            </div>
-                        </div>
-                        <div class="articleCard m-2">
-                            <img class="articleImage m-2" src="./css/pics/articeldefault.png" alt="article image">
-                            <div class="articleInfo m-2">
-                                <h4 class="articleName mb-0">Kamu ?</h4>
-                                <hr>
-                                <p class="articleDescription">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book.
-                                </p>
-                                <a href="">readmore ...</a>
-                            </div>
-                        </div>
-                        <div class="articleCard m-2">
-                            <img class="articleImage m-2" src="./css/pics/articeldefault.png" alt="article image">
-                            <div class="articleInfo m-2">
-                                <h4 class="articleName mb-0">Dia ?</h4>
-                                <hr>
-                                <p class="articleDescription">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book.
-                                </p>
-                                <a href="">readmore ...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- article feeds -->
-
-                    <!-- my article -->
-                    <div id="myArticle" class="">
-                        <div class="articleCard m-2">
-                            <img class="articleImage m-2" src="./css/pics/articeldefault.png" alt="article image">
-                            <div class="articleInfo m-2">
-                                <h4 class="articleName mb-0">Where is Hacktiv8 ?</h4>
-                                <hr>
-                                <p class="articleDescription">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book.
-                                </p>
-                                <a href="">readmore ...</a>
-                            </div>
-                        </div>
-                        <div class="articleCard m-2">
-                            <img class="articleImage m-2" src="./css/pics/articeldefault.png" alt="article image">
-                            <div class="articleInfo m-2">
-                                <h4 class="articleName mb-0">Who is Hacktiv8 ?</h4>
-                                <hr>
-                                <p class="articleDescription">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book.
-                                </p>
-                                <a href="">readmore ...</a>
-                            </div>
-                        </div>
-                        <div class="articleCard m-2">
-                            <img class="articleImage m-2" src="./css/pics/articeldefault.png" alt="article image">
-                            <div class="articleInfo m-2">
-                                <h4 class="articleName mb-0">Why is Hacktiv8 ?</h4>
-                                <hr>
-                                <p class="articleDescription">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book.
-                                </p>
-                                <a href="">readmore ...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- my article -->
-
-                    <!-- new article -->
-                    <div id="newArticle">
-                        <form method="post">
-                            <div class="commandBtn mb-3">
-                                <button class="btn newArtileBtn mr-2">Save</button>
-                                <button class="btn newArtileBtn ml-2">Back</button>
-                            </div>
-                            <div id="newArcticleTitle">
-                                <label class="labelName">Title</label>
-                                <input id="title" class="form-control" type="text" placeholder="Input article Title">
-                            </div>
-                            <div class="mt-3">
-                                <textarea id="articleContent" name="editor1"></textarea>
-                            </div>
-                    </div>
-                    </form>
-                    <!-- new article -->
-                </div>
-                <!-- userBackgrounnd -->
-            </div>
-        </div>
-        <!-- </div> -->
-        <!-- footer -->
-        <footer class="p-4">
-            <div class="d-flex align-items-center">
-                <h4>Contact Us On</h4>
-            </div>
-            <div class="contactBox">
-                <ul class="contactList mt-3 pl-0">
-                    <li><a href=""><i class="fab fa-twitter"></i> Twitter</a></li>
-                    <li><a href=""><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                    <li><a href=""><i class="fab fa-instagram"></i> Instagram</a></li>
-                    <li><a href=""><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
-                    <li><a href=""><i class="fas fa-envelope"></i> Email</a></li>
-                </ul>
-            </div>
-            <div id="copyrights">
-                <h6>Personal Project</h6>
-                <p>Made by Ardi Pratama © 2019</p>
-            </div>
-        </footer>
-        <!-- footer -->
-
-        <!-- script -->
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
-        <script>
-            CKEDITOR.replace('editor1');
-        </script>
-        <script>
-            window.onscroll = function () { myFunction() };
-            var navbar = document.getElementById("navbar");
-            var sticky = navbar.offsetTop;
-            function myFunction() {
-                if (window.pageYOffset >= sticky) {
-                    navbar.classList.add("sticky")
-                } else {
-                    navbar.classList.remove("sticky");
-                }
-            }
-        </script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-        <script src="./js/index.js"></script>
-        <!-- script -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <!-- Your share button code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/src/main.js"></script>
 </body>
-
 </html>
